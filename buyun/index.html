@@ -35,7 +35,7 @@
 			const pixlePerMetre = window.screen.height / 0.12;
 			window.addEventListener("devicemotion", function(event) {
 				let acc = -event.acceleration.y * pixlePerMetre;
-				let interval = event.interval * 1e-3;
+				let interval = event.interval > 1 ? event.interval * 1e-3 : event.interval;
 
 				speedDiff = acc * interval;
 				scroll += (speed + speedDiff / 2) * interval;
