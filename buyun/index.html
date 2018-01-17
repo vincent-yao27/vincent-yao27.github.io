@@ -34,12 +34,12 @@
 			let speed = 0, scroll = (document.body.scrollHeight - window.screen.height) / 2;
 			const pixlePerMetre = window.screen.height / 0.12;
 			window.addEventListener("devicemotion", function(event) {
-				let acc = event.acceleration.y * pixlePerMetre;
+				let acc = -event.acceleration.y * pixlePerMetre;
 				let interval = event.interval * 1e-3;
 
 				speedDiff = acc * interval;
 				scroll += (speed + speedDiff / 2) * interval;
-				speed += speedDiff;
+				speed = speed * Math.pow(0.5, interval) + speedDiff;
 
 				info.innerHTML = `ppm: ${window.screen.height / 0.12}<br> speedDiff: ${speedDiff}<br> speed: ${speed}<br> scroll: ${scroll}`;
 				window.scroll(0, scroll);
