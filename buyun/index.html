@@ -28,9 +28,9 @@
 			}
 
 			let info = document.querySelector("p");
-			window.addEventListener('devicemotion', function(event) {
-				info.textContent = JSON.stringify(event.acceleration);
-			});
+			window.addEventListener("devicemotion", function(event) {
+				info.textContent = JSON.stringify(event);
+			}, true);
 		}
 	</script>
 </body>
