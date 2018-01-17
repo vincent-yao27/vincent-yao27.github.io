@@ -41,7 +41,11 @@
 				scroll += (speed + speedDiff / 2) * interval;
 				speed = speed * Math.pow(0.5, interval) + speedDiff;
 
-				info.innerHTML = `ppm: ${window.screen.height / 0.12}<br> speedDiff: ${speedDiff}<br> speed: ${speed}<br> scroll: ${scroll}`;
+				info.innerHTML = `ppm: ${window.screen.height / 0.12}<br>
+								interval: ${interval}<br>
+								speedDiff: ${speedDiff}<br>
+								speed: ${speed}<br>
+								scroll: ${scroll}<br>`;
 				window.scroll(0, scroll);
 			}, true);
 		}
