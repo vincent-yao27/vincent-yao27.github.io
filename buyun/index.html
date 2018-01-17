@@ -29,7 +29,7 @@
 
 			let info = document.querySelector("p");
 			window.addEventListener("devicemotion", function(event) {
-				info.textContent = event.acceleration.x + ' m/s2';
+				info.textContent = `x: ${event.accelerationIncludingGravity.x.toFixed(2)}, y: ${event.accelerationIncludingGravity.y.toFixed(2)}, z: ${event.accelerationIncludingGravity.z.toFixed(2)}`;
 			}, true);
 		}
 	</script>
