@@ -11,6 +11,9 @@
 			margin: 0;
 			padding: 0;
 		}
+		p {
+			position: fixed;
+		}
 		div {
 			height: 100px;
 		}
@@ -30,10 +33,10 @@
 			let info = document.querySelector("p");
 			let speed = 0, scroll = (document.body.scrollHeight + window.screen.height) / 2;
 			window.addEventListener("devicemotion", function(event) {
-				info.textContent = `x: ${event.accelerationIncludingGravity.x.toFixed(2)}, y: ${event.accelerationIncludingGravity.y.toFixed(2)}, z: ${event.accelerationIncludingGravity.z.toFixed(2)}`;
 				speedDiff = event.acceleration.y * event.interval * 1e-3;
 				scroll += (speed + speedDiff / 2) * event.interval * 1e-3 * window.screen.height / 0.12;
 				speed += speedDiff;
+				info.textContent = `speedDiff: ${speedDiff}, ppm: ${window.screen.height / 0.12}, speed: ${speed}, scroll: ${scroll}`;
 			}, true);
 		}
 	</script>
